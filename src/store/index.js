@@ -6,11 +6,27 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    counter: 0,
+    showNav: false,
+    news: [],
+    category: "",
+    query: "",
+    countryCode: "za",
   },
   mutations: {
-    increment(state, payload) {
-      state.counter += payload;
+    toggleNav(state) {
+      state.showNav = !state.showNav;
+    },
+    setNews(state, payload) {
+      state.news = payload;
+    },
+    setCountryCode(state, payload) {
+      state.countryCode = payload;
+    },
+    setQuery(state, payload) {
+      state.query = payload;
+    },
+    setCategory(state, payload) {
+      state.category = payload;
     },
   },
 });

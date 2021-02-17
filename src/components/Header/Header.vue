@@ -1,15 +1,22 @@
 <template>
   <div class="header">
     <div class="header__left">
-      <v-icon class="header__left__icon">
-        mdi-newspaper
-      </v-icon>
-      <h1>News</h1>
-    </div>
-    <div class="header__center__show__nav">
-      <v-icon class="header__left__icon">
-        mdi-chevron-down
-      </v-icon>
+      <div
+        class="header__nav__toggle"
+        title="show nav"
+        @mouseenter="toggleNav()"
+        @click="toggleNav()"
+      >
+        <v-icon class="header__left__icon">
+          mdi-menu
+        </v-icon>
+      </div>
+      <div class="header__left__logo">
+        <v-icon class="header__left__icon">
+          mdi-newspaper
+        </v-icon>
+        <h1>News</h1>
+      </div>
     </div>
     <div class="header__right">
       <router-link to="/">Top</router-link>
@@ -21,6 +28,11 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    toggleNav() {
+      this.$store.commit("toggleNav");
+    },
+  },
 };
 </script>
 
@@ -49,15 +61,12 @@ export default {
     }
     .header__left__icon {
       color: lightseagreen !important;
-      margin-right: 5px;
+      margin-right: 2px;
     }
-  }
-  .header__center__show__nav {
-    color: white !important;
-    margin-bottom: -20px;
-    cursor: pointer;
-    .header__left__icon {
-      color: white !important;
+    .header__left__logo {
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
     }
   }
   .header__right {
