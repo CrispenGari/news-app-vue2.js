@@ -4,7 +4,7 @@ This is a simple Vue.js application that display news.
 
 ## Demo
 
-![alt-text]()
+![alt-text](https://github.com/CrispenGari/news-app-vue2.js/blob/main/bandicam%202021-02-19%2005-03-08-451.jpg)
 
 ## This application is using.
 
