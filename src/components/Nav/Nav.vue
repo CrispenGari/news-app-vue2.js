@@ -1,11 +1,17 @@
 <template>
   <div class="nav">
     <div class="nav__left">
-      <h2 v-for="(category, i) in categories" :key="{ i }">{{ category }}</h2>
+      <h2
+        v-for="(category, i) in categories"
+        :key="{ i }"
+        :class="i === 0 && 'nav__active'"
+      >
+        {{ category }}
+      </h2>
     </div>
     <form class="nav__right" @submit.prevent="searchNews">
       <div class="nav__right__search__input">
-        <input type="text" placeholder="Search News..." v-model.trim="query" />
+        <input type="text" placeholder="Search News..." />
         <v-icon class="nav__right__icon">
           mdi-magnify
         </v-icon>
@@ -26,18 +32,14 @@ export default {
   name: "Nav",
   data() {
     return {
-      query: "",
       categories: NEWS_CONST.categories,
       countries: NEWS_CONST.countries,
-      category: "",
       country: "za",
     };
   },
   methods: {
     searchNews() {
-      this.$store.commit("setQuery", this.query);
       this.$store.commit("setCountryCode", this.country);
-      this.$store.commit("setCategory", this.category);
     },
   },
 };
@@ -66,6 +68,9 @@ export default {
     h2:hover {
       color: lightseagreen;
     }
+  }
+  .nav__active {
+    color: lightseagreen !important;
   }
   .nav__right {
     flex: 0.3;

@@ -8,8 +8,6 @@ const store = new Vuex.Store({
   state: {
     showNav: false,
     news: [],
-    category: "",
-    query: "",
     countryCode: "za",
   },
   mutations: {

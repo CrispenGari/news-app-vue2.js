@@ -37,6 +37,7 @@ export default {
   },
   mounted() {
     (async () => {
+      this.$store.commit("setNews", []);
       const res = await axios.get(
         `${endpoints.TOP_HEADLINES}&country=${this.country}`
       );
@@ -59,6 +60,7 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
   }
 }
 </style>
